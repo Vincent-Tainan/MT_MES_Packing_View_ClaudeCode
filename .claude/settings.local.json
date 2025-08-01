@@ -3,7 +3,17 @@
     "allow": [
       "Bash(find:*)",
       "Bash(git init:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git remote add:*)",
+      "Bash(git branch:*)",
+      "Bash(git push:*)",
+      "Bash(call backup_project.bat)",
+      "Bash(.backup_project.bat)",
+      "Bash(mkdir:*)",
+      "Bash(tar:*)",
+      "Bash(ls:*)",
+      "Bash(rm:*)"
     ],
     "deny": []
   }

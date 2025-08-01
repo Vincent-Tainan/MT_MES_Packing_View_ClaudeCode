@@ -110,7 +110,35 @@
 
     </LinearLayout>
 
-    <!-- 已掃描列表 (70%) -->
+    <!-- 掃描區塊顯示 (10%) -->
+    <LinearLayout
+        android:id="@+id/layoutScanArea"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/light_gray"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layoutTaskInfo"
+        app:layout_constraintHeight_percent="0.10">
+
+        <TextView
+            android:id="@+id/tvScanStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="掃描區域 - 準備就緒"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/purple_700"
+            android:gravity="center"
+            android:background="@drawable/rounded_edittext_bg"
+            android:padding="8dp" />
+
+    </LinearLayout>
+
+    <!-- 已掃描列表 (65%) -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvScannedItems"
         android:layout_width="0dp"
@@ -120,14 +148,13 @@
         android:layout_marginEnd="8dp"
         android:clipToPadding="false"
         android:background="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/layoutManualInput"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutTaskInfo"
-        app:layout_constraintHeight_percent="0.70"
+        app:layout_constraintTop_toBottomOf="@id/layoutScanArea"
+        app:layout_constraintHeight_percent="0.65"
         tools:listitem="@layout/item_scanned_item" />
 
-    <!-- 手動輸入區域 (5%) -->
+    <!-- 手動輸入區域 (10%) -->
     <LinearLayout
         android:id="@+id/layoutManualInput"
         android:layout_width="0dp"
@@ -140,7 +167,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvScannedItems"
-        app:layout_constraintHeight_percent="0.05">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHeight_percent="0.10">
 
         <EditText
             android:id="@+id/etManualInput"
@@ -175,33 +203,5 @@
 
     </LinearLayout>
 
-    <!-- 掃描區塊顯示 (10%) -->
-    <LinearLayout
-        android:id="@+id/layoutScanArea"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:background="@color/light_gray"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layoutManualInput"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHeight_percent="0.10">
-
-        <TextView
-            android:id="@+id/tvScanStatus"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="掃描區域 - 準備就緒"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="@color/purple_700"
-            android:gravity="center"
-            android:background="@drawable/rounded_edittext_bg"
-            android:padding="8dp" />
-
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

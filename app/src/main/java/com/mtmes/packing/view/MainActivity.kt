@@ -15,7 +15,6 @@ import com.mtmes.packing.view.data.MockData
 import com.mtmes.packing.view.databinding.ActivityMainBinding
 import com.mtmes.packing.view.model.Task
 import com.mtmes.packing.view.utils.LanguageManager
-import com.mtmes.packing.view.security.UpdateExecutor
 
 /**
  * 主活動 - 管理備料任務清單
@@ -24,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var taskListAdapter: TaskListAdapter
-    private lateinit var updateExecutor: UpdateExecutor
     
     private var originalTasks: List<Task> = emptyList()
     private var currentSearchText: String = ""
@@ -36,22 +34,12 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         
-        // 初始化更新執行器
-        updateExecutor = UpdateExecutor(this)
-        
         setupToolbar()
         setupLanguageSwitch()
         loadTasks()
         setupRecyclerView()
         setupSpinners()
         setupSearch()
-        
-        // 執行版本檢查（延遲執行避免影響啟動速度）
-        if (BuildConfig.ENABLE_VERSION_CHECK) {
-            binding.root.postDelayed({
-                updateExecutor.executeUpdateCheck()
-            }, 2000)
-        }
     }
 
     override fun attachBaseContext(newBase: Context?) {

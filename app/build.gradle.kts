@@ -15,12 +15,6 @@ android {
         versionName = "1.0.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-        
-        // 版本控制配置
-        buildConfigField("String", "VERSION_CHECK_URL", "\"https://your-server.com/api/version-check\"")
-        buildConfigField("String", "VERSION_CHECK_SECRET", "\"your-secret-key-here\"")
-        buildConfigField("int", "MIN_SUPPORTED_VERSION", "1")
-        buildConfigField("boolean", "ENABLE_VERSION_CHECK", "false")
     }
 
     buildTypes {
@@ -41,7 +35,6 @@ android {
     }
     buildFeatures {
         viewBinding = true
-        buildConfig = true
     }
 }
 
