@@ -37,7 +37,7 @@ class ScanActivity : AppCompatActivity() {
         } else {
             val scannedText = result.contents
             Toast.makeText(this, "掃描結果: $scannedText", Toast.LENGTH_LONG).show()
-            addScannedItem(scannedText)
+            addItem(scannedText)
             updateScanStatus(getString(R.string.scan_success))
             
             // 延遲重新啟動掃描
