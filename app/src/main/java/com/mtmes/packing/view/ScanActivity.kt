@@ -2,12 +2,15 @@ package com.mtmes.packing.view
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.journeyapps.barcodescanner.ScanContract
+import com.journeyapps.barcodescanner.ScanOptions
 import com.mtmes.packing.view.adapter.ScannedItemsAdapter
 import com.mtmes.packing.view.data.MockData
 import com.mtmes.packing.view.databinding.ActivityScanBinding
@@ -25,6 +28,24 @@ class ScanActivity : AppCompatActivity() {
     private var currentTaskId: String = ""
     private var taskDescription: String = ""
     private var isDuplicateCheckEnabled: Boolean = true
+    
+    // ZXing 掃描器
+    private val scanLauncher = registerForActivityResult(ScanContract()) { result ->
+        if (result.contents == null) {
+            Toast.makeText(this, getString(R.string.scan_cancelled), Toast.LENGTH_SHORT).show()
+            updateScanStatus(getString(R.string.scan_area_ready))
+        } else {
+            val scannedText = result.contents
+            Toast.makeText(this, "掃描結果: $scannedText", Toast.LENGTH_LONG).show()
+            addScannedItem(scannedText)
+            updateScanStatus(getString(R.string.scan_success))
+            
+            // 延遲重新啟動掃描
+            binding.root.postDelayed({
+                startBarcodeScanning()
+            }, 1500)
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,7 +58,11 @@ class ScanActivity : AppCompatActivity() {
         setupTaskInfo()
         setupInputAndButtons()
         setupDuplicateCheckSwitch()
+        setupScanArea()
         loadExistingScannedItems()
+        
+        // 自動啟動掃描
+        startBarcodeScanning()
     }
 
     override fun attachBaseContext(newBase: Context?) {
@@ -128,9 +153,6 @@ class ScanActivity : AppCompatActivity() {
             }
         }
         
-        // 初始化掃描區域狀態
-        binding.tvScanStatus.text = getString(R.string.scan_area_ready)
-        
         // 初始狀態：新增按鈕不可用
         binding.btnAdd.isEnabled = false
     }
@@ -142,6 +164,44 @@ class ScanActivity : AppCompatActivity() {
         binding.switchDuplicateCheck.setOnCheckedChangeListener { _, isChecked ->
             isDuplicateCheckEnabled = isChecked
         }
+    }
+
+    /**
+     * 設定掃描區域
+     */
+    private fun setupScanArea() {
+        // 設定掃描區域點擊事件
+        binding.layoutScanArea.setOnClickListener {
+            startBarcodeScanning()
+        }
+        
+        // 設定初始狀態
+        updateScanStatus(getString(R.string.scan_area_ready))
+    }
+
+    /**
+     * 啟動條碼掃描
+     */
+    private fun startBarcodeScanning() {
+        val options = ScanOptions().apply {
+            setDesiredBarcodeFormats(ScanOptions.ALL_CODE_TYPES)
+            setPrompt(getString(R.string.scan_prompt))
+            setCameraId(0)  // 使用後置鏡頭
+            setBeepEnabled(true)
+            setBarcodeImageEnabled(true)
+            setOrientationLocked(false)
+            setTimeout(30000) // 30秒超時
+        }
+        
+        updateScanStatus(getString(R.string.scan_starting))
+        scanLauncher.launch(options)
+    }
+
+    /**
+     * 更新掃描狀態顯示
+     */
+    private fun updateScanStatus(status: String) {
+        binding.tvScanStatus.text = status
     }
 
     /**

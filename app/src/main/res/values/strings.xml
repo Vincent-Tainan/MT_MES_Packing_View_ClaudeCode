@@ -30,6 +30,10 @@
     <string name="delete_button">刪除</string>
     <string name="scan_area_ready">掃描區域 - 準備就緒</string>
     <string name="scan_count_format">已掃: %d</string>
+    <string name="scan_starting">正在啟動掃描...</string>
+    <string name="scan_success">掃描成功 - 準備下次掃描</string>
+    <string name="scan_cancelled">掃描已取消</string>
+    <string name="scan_prompt">請將條碼對準掃描框內</string>
     
     <!-- Spinner Arrays -->
     <string-array name="sort_options">

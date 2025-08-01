@@ -53,6 +53,10 @@
     <string name="delete_button">Delete</string>
     <string name="scan_area_ready">Scan Area - Ready</string>
     <string name="scan_count_format">Scanned: %d</string>
+    <string name="scan_starting">Starting scanner...</string>
+    <string name="scan_success">Scan successful - Ready for next scan</string>
+    <string name="scan_cancelled">Scan cancelled</string>
+    <string name="scan_prompt">Please align barcode within the scan frame</string>
     
     <!-- Spinner Arrays -->
     <string-array name="sort_options">
