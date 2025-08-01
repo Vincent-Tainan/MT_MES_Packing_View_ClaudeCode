@@ -1,0 +1,31 @@
+# Android 編譯檔案
+/build/
+/app/build/
+/local.properties
+/.gradle/
+
+# IDE 檔案
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf/
+.idea/libraries/
+
+# OS 檔案
+.DS_Store
+Thumbs.db
+nul
+
+# 備份檔案
+/Backups/
+*.tmp
+*.log
+
+# APK 檔案
+*.apk
+*.aab
+
+# 錯誤和測試檔案
+Build_Error*.txt
+CatLog*.txt

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MT MES Packing View</string>
+    
+    <!-- Language Switch -->
+    <string name="switch_language">轉換中文</string>
+    
+    <!-- Main Activity -->
+    <string name="title_task_list">Material Task List</string>
+    <string name="task_list_title">Material Task List</string>
+    <string name="hint_search">Search tasks...</string>
+    <string name="search_hint">Search tasks...</string>
+    <string name="sort_by">Sort by</string>
+    <string name="filter_by_status">Filter by Status</string>
+    <string name="sort_by_date">Preparation Date (Old to New)</string>
+    <string name="sort_by_task_id">Task Number (A-Z)</string>
+    <string name="sort_by_status">Completion Status</string>
+    <string name="sort_by_progress">Scan Progress (Low to High)</string>
+    <string name="status_all">All Status</string>
+    <string name="all_status">All Status</string>
+    <string name="status_pending">Pending</string>
+    <string name="status_in_progress">In Progress</string>
+    <string name="status_completed">Completed</string>
+    
+    <!-- Scan Activity -->
+    <string name="title_scan_operation">Scan Operation</string>
+    <string name="scan_operation_title">Scan Operation</string>
+    <string name="btn_back">Back</string>
+    <string name="btn_end_operation">End Operation</string>
+    <string name="end_operation">End Operation</string>
+    <string name="btn_data_check">Data Check</string>
+    <string name="task_number">Task Number: %s</string>
+    <string name="camera_preview_placeholder">Camera preview will be here in Phase 2</string>
+    <string name="btn_start_scan">Start Native Scan</string>
+    <string name="start_scan">Start Native Scan</string>
+    <string name="hint_manual_input">Enter part number manually</string>
+    <string name="manual_input_hint">Enter part number manually</string>
+    <string name="btn_add">Add</string>
+    <string name="add_button">Add</string>
+    <string name="switch_duplicate_check">Check Duplicates</string>
+    <string name="duplicate_check">Check Duplicates</string>
+    <string name="scanned_list_title">Scanned List</string>
+    
+    <!-- Messages -->
+    <string name="msg_item_added">Item added: %s</string>
+    <string name="msg_duplicate_item">Duplicate item: %s</string>
+    <string name="msg_empty_input">Please enter part number</string>
+    <string name="msg_confirm_end_operation">Are you sure you want to end this operation?</string>
+    <string name="msg_confirm_delete_item">Are you sure you want to delete this item?</string>
+    <string name="btn_confirm">Confirm</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_delete">Delete</string>
+    <string name="delete_button">Delete</string>
+    <string name="scan_area_ready">Scan Area - Ready</string>
+    <string name="scan_count_format">Scanned: %d</string>
+    
+    <!-- Spinner Arrays -->
+    <string-array name="sort_options">
+        <item>@string/sort_by_date</item>
+        <item>@string/sort_by_task_id</item>
+        <item>@string/sort_by_status</item>
+        <item>@string/sort_by_progress</item>
+    </string-array>
+    
+    <string-array name="status_filter_options">
+        <item>@string/all_status</item>
+        <item>@string/status_pending</item>
+        <item>@string/status_in_progress</item>
+        <item>@string/status_completed</item>
+    </string-array>
+
+    <!-- Format Strings -->
+    <string name="progress_format">%d / %d</string>
+    <string name="task_id_format">No: %s</string>
+    <string name="scanned_time_format">Scanned Time: %s</string>
+</resources>

@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">MT MES Packing</string>
+    
+    <!-- Language Switch -->
+    <string name="switch_language">Switch English</string>
+    
+    <!-- Main Activity -->
+    <string name="task_list_title">備料任務清單</string>
+    <string name="search_hint">搜尋任務...</string>
+    <string name="sort_by">排序方式</string>
+    <string name="filter_by_status">狀態篩選</string>
+    <string name="sort_by_date">備料日期</string>
+    <string name="sort_by_task_id">備料單號</string>
+    <string name="sort_by_status">完工狀態</string>
+    <string name="sort_by_progress">掃描進度</string>
+    <string name="all_status">所有狀態</string>
+    <string name="status_pending">待處理</string>
+    <string name="status_in_progress">進行中</string>
+    <string name="status_completed">已完成</string>
+    
+    <!-- Scan Activity -->
+    <string name="scan_operation_title">掃描作業</string>
+    <string name="btn_back">返回</string>
+    <string name="end_operation">結束作業</string>
+    <string name="btn_data_check">資料檢查</string>
+    <string name="start_scan">啟動原生掃描</string>
+    <string name="manual_input_hint">手動輸入料號</string>
+    <string name="add_button">新增</string>
+    <string name="duplicate_check">重複掃描檢查</string>
+    <string name="delete_button">刪除</string>
+    <string name="scan_area_ready">掃描區域 - 準備就緒</string>
+    <string name="scan_count_format">已掃: %d</string>
+    
+    <!-- Spinner Arrays -->
+    <string-array name="sort_options">
+        <item>@string/sort_by_date</item>
+        <item>@string/sort_by_task_id</item>
+        <item>@string/sort_by_status</item>
+        <item>@string/sort_by_progress</item>
+    </string-array>
+    
+    <string-array name="status_filter_options">
+        <item>@string/all_status</item>
+        <item>@string/status_pending</item>
+        <item>@string/status_in_progress</item>
+        <item>@string/status_completed</item>
+    </string-array>
+
+    <!-- Format Strings -->
+    <string name="progress_format">%1$d / %2$d</string>
+    <string name="task_id_format">單號: %1$s</string>
+    <string name="scanned_time_format">掃描時間: %1$s</string>
+    
+    <!-- Messages -->
+    <string name="msg_item_added">已新增項目: %s</string>
+    <string name="msg_duplicate_item">重複項目: %s</string>
+    <string name="msg_empty_input">請輸入料號</string>
+    <string name="msg_confirm_end_operation">確定要結束此次作業嗎？</string>
+    <string name="msg_confirm_delete_item">確定要刪除此項目嗎？</string>
+    <string name="btn_confirm">確認</string>
+    <string name="btn_cancel">取消</string>
+    
+    <!-- Missing string resources from build warnings -->
+    <string name="btn_add">新增</string>
+    <string name="btn_delete">刪除</string>
+    <string name="btn_end_operation">結束作業</string>
+    <string name="btn_start_scan">啟動原生掃描</string>
+    <string name="camera_preview_placeholder">相機預覽區域</string>
+    <string name="hint_manual_input">手動輸入料號</string>
+    <string name="hint_search">搜尋任務...</string>
+    <string name="scanned_list_title">已掃描清單</string>
+    <string name="sort_by_number">依編號排序</string>
+    <string name="status_all">所有狀態</string>
+    <string name="switch_duplicate_check">重複掃描檢查</string>
+    <string name="task_number">任務編號</string>
+    <string name="title_scan_operation">掃描作業</string>
+    <string name="title_task_list">備料任務清單</string>
+</resources>
