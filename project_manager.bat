@@ -9,16 +9,18 @@ echo 請選擇操作:
 echo 1. 專案備份 (壓縮打包)
 echo 2. Git 推送備份
 echo 3. 初始化 Git 倉庫
-echo 4. 查看備份清單
-echo 5. 退出
+echo 4. 版本管理 (Tags/Releases)
+echo 5. 查看備份清單
+echo 6. 退出
 echo.
-set /p "choice=請輸入選項 (1-5): "
+set /p "choice=請輸入選項 (1-6): "
 
 if "%choice%"=="1" goto :backup
 if "%choice%"=="2" goto :git_backup
 if "%choice%"=="3" goto :git_init
-if "%choice%"=="4" goto :list_backups
-if "%choice%"=="5" goto :end
+if "%choice%"=="4" goto :version_manager
+if "%choice%"=="5" goto :list_backups
+if "%choice%"=="6" goto :end
 goto :main
 
 :backup
@@ -81,6 +83,12 @@ echo 正在初始化 Git 倉庫...
 call setup_git.bat
 goto :main
 
+:version_manager
+echo.
+echo 正在啟動版本管理工具...
+call version_manager.bat
+goto :main
+
 :list_backups
 echo.
 echo ========================================
@@ -111,16 +119,18 @@ echo 請選擇操作:
 echo 1. 專案備份 (壓縮打包)
 echo 2. Git 推送備份
 echo 3. 初始化 Git 倉庫
-echo 4. 查看備份清單
-echo 5. 退出
+echo 4. 版本管理 (Tags/Releases)
+echo 5. 查看備份清單
+echo 6. 退出
 echo.
-set /p "choice=請輸入選項 (1-5): "
+set /p "choice=請輸入選項 (1-6): "
 
 if "%choice%"=="1" goto :backup
 if "%choice%"=="2" goto :git_backup
 if "%choice%"=="3" goto :git_init
-if "%choice%"=="4" goto :list_backups
-if "%choice%"=="5" goto :end
+if "%choice%"=="4" goto :version_manager
+if "%choice%"=="5" goto :list_backups
+if "%choice%"=="6" goto :end
 goto :start
 
 :end
