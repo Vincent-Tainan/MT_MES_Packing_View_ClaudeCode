@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.journeyapps.barcodescanner.ScanContract
@@ -60,6 +61,7 @@ class ScanActivity : AppCompatActivity() {
         setupDuplicateCheckSwitch()
         setupScanArea()
         loadExistingScannedItems()
+        setupBackPressHandler()
         
         // 自動啟動掃描
         startBarcodeScanning()
@@ -205,6 +207,30 @@ class ScanActivity : AppCompatActivity() {
     }
 
     /**
+     * 設定返回按鍵處理
+     */
+    private fun setupBackPressHandler() {
+        val callback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                // 如果有掃描項目，提示用戶確認是否離開
+                if (scannedItemsAdapter.itemCount > 0) {
+                    AlertDialog.Builder(this@ScanActivity)
+                        .setTitle("離開掃描")
+                        .setMessage("您有未完成的掃描作業，確定要離開嗎？")
+                        .setPositiveButton("確定") { _, _ ->
+                            finish()
+                        }
+                        .setNegativeButton("取消", null)
+                        .show()
+                } else {
+                    finish()
+                }
+            }
+        }
+        onBackPressedDispatcher.addCallback(this, callback)
+    }
+
+    /**
      * 載入現有的掃描項目
      */
     private fun loadExistingScannedItems() {
@@ -292,21 +318,5 @@ class ScanActivity : AppCompatActivity() {
             }
             .setNegativeButton("取消", null)
             .show()
-    }
-
-    override fun onBackPressed() {
-        // 如果有掃描項目，提示用戶確認是否離開
-        if (scannedItemsAdapter.itemCount > 0) {
-            AlertDialog.Builder(this)
-                .setTitle("離開掃描")
-                .setMessage("您有未完成的掃描作業，確定要離開嗎？")
-                .setPositiveButton("確定") { _, _ ->
-                    super.onBackPressed()
-                }
-                .setNegativeButton("取消", null)
-                .show()
-        } else {
-            super.onBackPressed()
-        }
     }
 }
